@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B & T Asesoría Inmobiliaria - Encontramos tu Hogar Ideal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#1d4ed8',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        },
+                        warm: {
+                            50: '#fdfbf7',
+                            100: '#f7f3e9',
+                            200: '#efe6d3',
+                            500: '#b48a58',
+                            600: '#966d3b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        .chat-scroll::-webkit-scrollbar, .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb, .custom-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 glass-header border-b border-slate-200/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-brand-900 rounded-xl flex items-center justify-center text-amber-400 font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                    B&T
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg sm:text-xl text-slate-900 tracking-tight leading-tight">B & T</span>
+                    <span class="text-xs font-semibold tracking-widest text-brand-600 uppercase">Asesoría Inmobiliaria</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+                <a href="#inicio" class="hover:text-brand-600 transition-colors">Inicio</a>
+                <a href="#propiedades" class="hover:text-brand-600 transition-colors">Propiedades</a>
+                <a href="#nosotros" class="hover:text-brand-600 transition-colors">Sobre Nosotros</a>
+                <a href="#contacto" class="hover:text-brand-600 transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Actions & Admin Trigger -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleAdminPanel()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all border border-slate-300/70 cursor-pointer">
+                    <i class="fa-solid fa-user-gear text-brand-600"></i>
+                    <span class="inline" id="adminBtnText">Acceso Dueño</span>
+                </button>
+                <a id="headerWaBtn" href="#" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Escríbenos por WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow">
+        
+        <!-- HERO SECTION -->
+        <section id="inicio" class="relative bg-gradient-to-b from-brand-50 via-warm-50 to-slate-50 py-16 lg:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-amber-100/80 text-amber-900 border border-amber-200/60 mb-4 shadow-sm">
+                        <i class="fa-solid fa-heart text-rose-500"></i> Tu hogar, tus sueños, nuestra prioridad
+                    </span>
+                    <h1 id="displayHeroTitle" class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Encontramos el lugar donde construirás tus <span class="text-brand-600 underline decoration-amber-400 decoration-wavy decoration-2">mejores recuerdos</span>
+                    </h1>
+                    <p id="displayHeroSubtitle" class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+                        Te acompañamos paso a paso con calidez, honestidad y la experiencia que necesitas para comprar, rentar o invertir con total tranquilidad.
+                    </p>
+                </div>
+
+                <!-- SEARCH & FILTER BAR CARD -->
+                <div class="max-w-4xl mx-auto bg-white rounded-3xl p-4 sm:p-6 shadow-xl border border-slate-200/70">
+                    <!-- Operation Type Tabs -->
+                    <div class="flex gap-2 border-b border-slate-100 pb-4 mb-4">
+                        <button onclick="setSearchModalType('todos')" id="tabTypeTodos" class="search-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-brand-900 text-white transition-all">Todos</button>
+                        <button onclick="setSearchModalType('Venta')" id="tabTypeVenta" class="search-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-all">En Venta</button>
+                        <button onclick="setSearchModalType('Renta')" id="tabTypeRenta" class="search-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:bg-slate-100 transition-all">En Renta</button>
+                    </div>
+
+                    <!-- Search Controls Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/80">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Tipo de Propiedad</label>
+                            <select id="heroFilterCategory" class="w-full bg-transparent text-sm font-medium text-slate-800 focus:outline-none">
+                                <option value="todas">Todas las categorías</option>
+                                <option value="Casa">Casa</option>
+                                <option value="Departamento">Departamento</option>
+                                <option value="Terreno">Terreno</option>
+                            </select>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/80">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Ubicación / Zona</label>
+                            <input type="text" id="heroFilterLocation" placeholder="Ej. Santa Cruz, Centro..." class="w-full bg-transparent text-sm font-medium text-slate-800 placeholder-slate-400 focus:outline-none">
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200/80">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Presupuesto Máximo</label>
+                            <select id="heroFilterPrice" class="w-full bg-transparent text-sm font-medium text-slate-800 focus:outline-none">
+                                <option value="999999999">Sin límite</option>
+                                <option value="2000000">$2,000,000 / $15,000 Renta</option>
+                                <option value="4000000">$4,000,000 / $30,000 Renta</option>
+                                <option value="8000000">$8,000,000 / $50,000 Renta</option>
+                            </select>
+                        </div>
+
+                        <button onclick="applyHeroFilter()" class="w-full h-full min-h-[50px] bg-brand-600 hover:bg-brand-700 text-white rounded-2xl font-bold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass"></i> Buscar Propiedades
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROPERTY CATALOG SECTION -->
+        <section id="propiedades" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Catálogo Exclusivo</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Propiedades Destacadas</h2>
+                    <p class="text-slate-500 text-sm mt-1">Explora nuestras opciones minuciosamente verificadas para ti</p>
+                </div>
+
+                <!-- Dynamic Results Stats -->
+                <div class="flex items-center gap-3">
+                    <span id="resultsCount" class="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
+                        Mostrando 0 propiedades
+                    </span>
+                    <button onclick="resetFilters()" class="text-xs font-semibold text-brand-600 hover:text-brand-800 underline">
+                        Ver todas
+                    </button>
+                </div>
+            </div>
+
+            <!-- Property Grid -->
+            <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically populated by JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyCatalogState" class="hidden py-16 text-center bg-white rounded-3xl border border-dashed border-slate-300 p-8">
+                <i class="fa-solid fa-house-chimney-crack text-4xl text-slate-300 mb-3"></i>
+                <h3 class="text-lg font-bold text-slate-700">No encontramos propiedades con esos criterios</h3>
+                <p class="text-sm text-slate-500 mt-1 mb-4">Intenta ajustar tu búsqueda o consulta con nuestro asesor virtual por alternativas.</p>
+                <button onclick="resetFilters()" class="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-xs shadow transition-all">
+                    Restablecer Filtros
+                </button>
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="nosotros" class="py-16 bg-white border-y border-slate-200/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" alt="Asesores Inmobiliarios B&T" class="w-full h-[400px] object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-brand-900 text-white p-6 rounded-3xl shadow-xl z-20 max-w-xs hidden sm:block">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-shield-halved text-amber-400 text-3xl"></i>
+                                <div>
+                                    <p class="text-2xl font-black">100%</p>
+                                    <p class="text-xs text-slate-300">Transparencia y Calidez en cada operación</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Quiénes Somos</span>
+                        <h2 class="text-3xl font-extrabold text-slate-900 mt-2 leading-tight">
+                            Más que una inmobiliaria, tu aliado de confianza
+                        </h2>
+                        <p class="text-slate-600 text-sm mt-4 leading-relaxed">
+                            En <strong>B & T ASESORÍA INMOBILIARIA</strong> entendemos que detrás de cada consulta hay ilusiones, proyectos de vida o importantes decisiones financieras. Nos alejamos del trato frío tradicional para brindarte un acompañamiento humano, honesto y totalmente personalizado.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <i class="fa-solid fa-handshake text-brand-600 text-xl mb-2"></i>
+                                <h4 class="font-bold text-slate-800 text-sm">Trato Cercano</h4>
+                                <p class="text-xs text-slate-500 mt-1">Escuchamos tus verdaderas necesidades antes de sugerir.</p>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                                <i class="fa-solid fa-file-contract text-brand-600 text-xl mb-2"></i>
+                                <h4 class="font-bold text-slate-800 text-sm">Asesoría Legal</h4>
+                                <p class="text-xs text-slate-500 mt-1">Revisión jurídica rigurosa para tu seguridad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contacto" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-brand-900 to-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
+                    <div>
+                        <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Escríbenos Hoy</span>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold mt-2">¿Quieres vender, comprar o rentar?</h2>
+                        <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+                            Déjanos un mensaje o conversa directamente con nuestro asesor en vivo a través del chat o nuestro WhatsApp oficial.
+                        </p>
+
+                        <div class="mt-6 space-y-3 text-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-amber-400">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                </div>
+                                <a id="contactWaLink" href="#" target="_blank" class="hover:underline font-semibold text-emerald-400">Contactar por WhatsApp</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-amber-400">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <a id="contactEmailDisplay" href="#" class="hover:underline font-semibold">b&tuinmobiliaria@gmail.com</a>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-amber-400">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <span id="contactAddressDisplay">Cra 50 B #98-37, Santa Cruz</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Direct Form -->
+                    <form onsubmit="handleDirectContact(event)" class="bg-white text-slate-800 p-6 rounded-2xl shadow-lg space-y-4">
+                        <h3 class="font-bold text-slate-900 text-base">Déjanos tu contacto</h3>
+                        <div>
+                            <input type="text" id="contactName" required placeholder="Tu Nombre Completo" class="w-full px-4 py-2.5 text-sm bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+                        <div>
+                            <input type="tel" id="contactPhone" required placeholder="Teléfono / WhatsApp" class="w-full px-4 py-2.5 text-sm bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        </div>
+                        <div>
+                            <textarea id="contactMessage" rows="3" required placeholder="¿En qué propiedad o servicio estás interesado?" class="w-full px-4 py-2.5 text-sm bg-slate-50 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-sm shadow transition-all">
+                            Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-white text-sm">B & T ASESORÍA INMOBILIARIA</span>
+                <span>— Todos los derechos reservados &copy; 2026</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="#inicio" class="hover:text-white">Inicio</a>
+                <a href="#propiedades" class="hover:text-white">Propiedades</a>
+                <button onclick="toggleAdminPanel()" class="hover:text-amber-400">Panel Administrador</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROPERTY DETAILS MODAL -->
+    <div id="propertyModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative">
+            <button onclick="closePropertyModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-900/70 text-white flex items-center justify-center hover:bg-slate-900 transition-all">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- FLOATING LIVE HUMAN-LIKE ADVISOR WIDGET -->
+    <div class="fixed bottom-5 right-5 z-40">
+        <button id="chatToggleBtn" onclick="toggleAiChat()" class="relative group bg-gradient-to-r from-brand-600 to-brand-800 text-white p-4 rounded-full shadow-2xl flex items-center gap-3 hover:scale-105 transition-all">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <i class="fa-solid fa-user-tie text-xl"></i>
+            <span class="font-bold text-sm pr-1 hidden sm:inline">Asesor B&T en Línea</span>
+            <span class="bg-emerald-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase">En vivo</span>
+        </button>
+
+        <div id="chatWindow" class="hidden absolute bottom-16 right-0 w-[92vw] sm:w-[380px] h-[520px] bg-white rounded-3xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden transition-all">
+            <div class="bg-brand-900 text-white p-4 flex items-center justify-between shadow-md">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm leading-tight">Asesor B & T (En Línea)</h4>
+                        <p class="text-[11px] text-emerald-400 flex items-center gap-1 font-medium">
+                            <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block"></span> Atención en vivo personalizada
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleAiChat()" class="text-slate-300 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div id="chatMessages" class="flex-grow p-4 overflow-y-auto space-y-3 bg-slate-50 chat-scroll text-xs">
+                <div class="flex gap-2">
+                    <div class="w-7 h-7 rounded-full bg-amber-500 text-slate-900 flex items-center justify-center text-[11px] font-bold flex-shrink-0">B&T</div>
+                    <div id="chatWelcomeMessageContainer" class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 max-w-[85%] shadow-sm leading-relaxed">
+                        <!-- Filled dynamically from siteConfig -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto text-[11px] no-scrollbar">
+                <button onclick="sendQuickReply('Hola, me interesa comprar una casa')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-600 rounded-lg whitespace-nowrap border border-slate-200 transition-colors">
+                    🏡 Comprar Casa
+                </button>
+                <button onclick="sendQuickReply('Busco departamento en renta')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-600 rounded-lg whitespace-nowrap border border-slate-200 transition-colors">
+                    🏢 Depto en Renta
+                </button>
+                <button onclick="sendQuickReply('Deseo hablar con el dueño por WhatsApp')" class="px-2.5 py-1 bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-600 rounded-lg whitespace-nowrap border border-slate-200 transition-colors">
+                    📱 Contactar al Dueño
+                </button>
+            </div>
+
+            <div class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+                <input type="text" id="chatInput" onkeydown="handleChatKeyDown(event)" placeholder="Escribe tu mensaje al asesor..." class="flex-grow text-xs px-3 py-2.5 bg-slate-100 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                <button onclick="sendChatMessage()" class="w-9 h-9 bg-brand-600 hover:bg-brand-700 text-white rounded-xl flex items-center justify-center shadow transition-all">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVATE ADMIN PANEL FOR THE OWNER -->
+    <div id="adminPanelModal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-2 sm:p-4">
+        <div class="bg-white rounded-3xl w-full max-w-6xl h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-slate-200">
+            <!-- Admin Header -->
+            <div class="bg-slate-900 text-white p-4 sm:p-5 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500 text-slate-900 font-extrabold flex items-center justify-center">
+                        <i class="fa-solid fa-crown text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-base sm:text-lg">Panel de Control Total del Dueño</h3>
+                        <p class="text-xs text-slate-400">Gestión de Inmuebles, Contactos, IA y Ajustes del Sitio Web</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <span id="adminLoginBadge" class="hidden sm:inline-block text-[11px] px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full font-semibold border border-emerald-500/30">
+                        <i class="fa-solid fa-lock text-xs mr-1"></i> Sesión Activa
+                    </span>
+                    <button onclick="toggleAdminPanel()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-xmark text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Admin Login Gate View -->
+            <div id="adminLoginGate" class="flex-grow p-6 flex flex-col items-center justify-center text-center bg-slate-50">
+                <div class="w-16 h-16 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mb-4">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900">Acceso Privado para el Dueño</h4>
+                <p class="text-xs text-slate-500 max-w-sm mt-1 mb-6">Ingresa tu clave de administrador para gestionar todo tu negocio inmobiliario.</p>
+                <div class="w-full max-w-xs space-y-3">
+                    <input type="password" id="adminPasswordInput" placeholder="Clave de Administrador" class="w-full px-4 py-2.5 text-sm bg-white rounded-xl border border-slate-300 text-center font-mono focus:ring-2 focus:ring-brand-500 focus:outline-none shadow-sm">
+                    <button onclick="loginAdmin()" class="w-full py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-sm shadow transition-all">
+                        Iniciar Sesión
+                    </button>
+                    <p class="text-[11px] text-slate-400 italic">Clave predeterminada: <b>admin123</b></p>
+                </div>
+            </div>
+
+            <!-- Admin Workspace (After authentication) -->
+            <div id="adminWorkspace" class="hidden flex-grow flex flex-col overflow-hidden bg-slate-50">
+                <!-- Admin Navigation Tabs -->
+                <div class="bg-white px-4 sm:px-6 border-b border-slate-200 flex gap-2 overflow-x-auto no-scrollbar">
+                    <button onclick="switchAdminTab('dashboard')" id="adminTabDashboard" class="admin-tab-btn active border-b-2 border-brand-600 text-brand-600 font-bold py-3.5 px-4 text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-chart-line"></i> Dashboard Resumen
+                    </button>
+                    <button onclick="switchAdminTab('properties')" id="adminTabProperties" class="admin-tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-bold py-3.5 px-4 text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-building-user"></i> Inmuebles (<span id="adminPropCount">0</span>)
+                    </button>
+                    <button onclick="switchAdminTab('add')" id="adminTabAdd" class="admin-tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-bold py-3.5 px-4 text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-circle-plus"></i> + Publicar Propiedad
+                    </button>
+                    <button onclick="switchAdminTab('leads')" id="adminTabLeads" class="admin-tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-bold py-3.5 px-4 text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-users-viewfinder"></i> Prospectos IA (<span id="adminLeadsCount">0</span>)
+                    </button>
+                    <button onclick="switchAdminTab('settings')" id="adminTabSettings" class="admin-tab-btn border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-bold py-3.5 px-4 text-xs sm:text-sm flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-gear"></i> Ajustes de la Empresa
+                    </button>
+                </div>
+
+                <!-- Tab 1: Dashboard Overview -->
+                <div id="adminTabSectionDashboard" class="flex-grow p-4 sm:p-6 overflow-y-auto space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">Propiedades Activas</span>
+                                <h3 id="dashTotalProp" class="text-2xl font-black text-slate-800 mt-1">0</h3>
+                            </div>
+                            <div class="w-12 h-12 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-house"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">En Venta</span>
+                                <h3 id="dashSalesProp" class="text-2xl font-black text-slate-800 mt-1">0</h3>
+                            </div>
+                            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-tags"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">En Renta</span>
+                                <h3 id="dashRentProp" class="text-2xl font-black text-slate-800 mt-1">0</h3>
+                            </div>
+                            <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-slate-400 uppercase">Clientes Captados</span>
+                                <h3 id="dashTotalLeads" class="text-2xl font-black text-slate-800 mt-1">0</h3>
+                            </div>
+                            <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Control Actions -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-sm mb-4">Acciones Rápidas del Dueño</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button onclick="switchAdminTab('add')" class="p-4 bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-200 rounded-2xl text-left transition-all group">
+                                <i class="fa-solid fa-plus-circle text-brand-600 text-xl mb-2 group-hover:scale-110 transition-transform"></i>
+                                <h5 class="font-bold text-slate-800 text-xs">Publicar Nuevo Inmueble</h5>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Sube fotos y detalles a la página al instante.</p>
+                            </button>
+                            <button onclick="switchAdminTab('leads')" class="p-4 bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-200 rounded-2xl text-left transition-all group">
+                                <i class="fa-solid fa-address-book text-purple-600 text-xl mb-2 group-hover:scale-110 transition-transform"></i>
+                                <h5 class="font-bold text-slate-800 text-xs">Revisar Mensajes de Clientes</h5>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Ver prospectos guardados por la IA.</p>
+                            </button>
+                            <button onclick="switchAdminTab('settings')" class="p-4 bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-amber-200 rounded-2xl text-left transition-all group">
+                                <i class="fa-solid fa-sliders text-amber-600 text-xl mb-2 group-hover:scale-110 transition-transform"></i>
+                                <h5 class="font-bold text-slate-800 text-xs">Cambiar Teléfono / Dirección</h5>
+                                <p class="text-[11px] text-slate-500 mt-0.5">Actualiza tus datos oficiales de contacto.</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Manage Properties List -->
+                <div id="adminTabSectionProperties" class="hidden flex-grow p-4 sm:p-6 overflow-y-auto">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-bold text-slate-800 text-base">Inventario de Propiedades</h4>
+                        <button onclick="switchAdminTab('add')" class="px-3.5 py-2 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-xs shadow">
+                            + Nueva Propiedad
+                        </button>
+                    </div>
+
+                    <div id="adminPropertiesList" class="space-y-3">
+                        <!-- Dynamically generated list cards -->
+                    </div>
+                </div>
+
+                <!-- Tab 3: Add / Edit Property Form -->
+                <div id="adminTabSectionAdd" class="hidden flex-grow p-4 sm:p-6 overflow-y-auto">
+                    <div class="max-w-3xl mx-auto bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <h4 id="formPropertyTitle" class="font-extrabold text-slate-900 text-lg">Agregar Nueva Propiedad</h4>
+                            <span class="text-xs font-semibold text-slate-400">Publicación inmediata</span>
+                        </div>
+
+                        <form id="propertyForm" onsubmit="saveProperty(event)" class="space-y-4">
+                            <input type="hidden" id="formPropId" value="">
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="col-span-1 sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Título de la Propiedad</label>
+                                    <input type="text" id="formTitle" required placeholder="Ej. Casa Campestre Residencial con Jardín" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tipo / Categoría</label>
+                                    <select id="formCategory" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                        <option value="Casa">Casa</option>
+                                        <option value="Departamento">Departamento</option>
+                                        <option value="Terreno">Terreno</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tipo de Operación</label>
+                                    <select id="formType" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                        <option value="Venta">Venta</option>
+                                        <option value="Renta">Renta</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Precio (COP / MXN)</label>
+                                    <input type="number" id="formPrice" required placeholder="Ej. 4850000" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Ubicación / Barrio</label>
+                                    <input type="text" id="formLocation" required placeholder="Ej. Santa Cruz, Medellín" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Recámaras</label>
+                                    <input type="number" id="formBedrooms" min="0" value="3" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Baños</label>
+                                    <input type="number" id="formBathrooms" min="0" step="0.5" value="2.5" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Construcción (m²)</label>
+                                    <input type="number" id="formArea" min="0" value="180" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Estacionamientos</label>
+                                    <input type="number" id="formParking" min="0" value="2" class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Descripción Atractiva</label>
+                                <textarea id="formDescription" rows="3" required placeholder="Describe las características destacadas de la propiedad..." class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                            </div>
+
+                            <!-- Drag & Drop Image Manager -->
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Fotos de la Propiedad</label>
+                                <div id="dropZone" onclick="document.getElementById('fileInput').click()" class="border-2 border-dashed border-slate-300 rounded-2xl p-5 text-center cursor-pointer hover:bg-slate-50 hover:border-brand-500 transition-all">
+                                    <i class="fa-solid fa-cloud-arrow-up text-3xl text-brand-600 mb-2"></i>
+                                    <p class="text-xs font-bold text-slate-700">Haz clic o arrastra fotos aquí</p>
+                                    <p class="text-[11px] text-slate-400 mt-1">Soporta imágenes locales o enlaces web</p>
+                                    <input type="file" id="fileInput" multiple accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+                                </div>
+
+                                <div class="mt-2 flex gap-2">
+                                    <input type="url" id="imageUrlInput" placeholder="O pega el enlace de una foto (URL)" class="flex-grow px-3 py-2 text-xs rounded-xl border border-slate-300 focus:outline-none">
+                                    <button type="button" onclick="addImageFromUrl()" class="px-3 py-2 bg-slate-800 text-white rounded-xl font-bold text-xs hover:bg-slate-900 transition-all">
+                                        + Agregar Foto
+                                    </button>
+                                </div>
+
+                                <div id="imagePreviewGrid" class="grid grid-cols-3 sm:grid-cols-5 gap-3 mt-3"></div>
+                            </div>
+
+                            <div class="flex items-center justify-end gap-3 pt-3 border-t border-slate-100">
+                                <button type="button" onclick="cancelPropertyEdit()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-xs shadow-md transition-all">
+                                    Guardar Propiedad
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tab 4: Leads Captured by AI -->
+                <div id="adminTabSectionLeads" class="hidden flex-grow p-4 sm:p-6 overflow-y-auto">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-base">Prospectos Registrados</h4>
+                            <p class="text-xs text-slate-500">Clientes interesados captados por la IA o el sitio web</p>
+                        </div>
+                        <button onclick="clearLeads()" class="text-xs text-rose-600 hover:text-rose-800 font-semibold">
+                            <i class="fa-solid fa-trash-can"></i> Limpiar Todo
+                        </button>
+                    </div>
+
+                    <div id="adminLeadsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+
+                <!-- Tab 5: Site & Company Configuration -->
+                <div id="adminTabSectionSettings" class="hidden flex-grow p-4 sm:p-6 overflow-y-auto">
+                    <div class="max-w-3xl mx-auto bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                        <div class="border-b border-slate-100 pb-3">
+                            <h4 class="font-extrabold text-slate-900 text-lg">Ajustes de Empresa y Contenido del Sitio</h4>
+                            <p class="text-xs text-slate-500">Todo lo que cambies aquí se actualizará de inmediato en toda la página web.</p>
+                        </div>
+
+                        <form onsubmit="saveSiteSettings(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Teléfono / WhatsApp Oficial</label>
+                                    <input type="text" id="settingPhone" required class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Correo Electrónico</label>
+                                    <input type="email" id="settingEmail" required class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div class="col-span-1 sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Dirección Física</label>
+                                    <input type="text" id="settingAddress" required class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div class="col-span-1 sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Título Banner Principal (Hero)</label>
+                                    <input type="text" id="settingHeroTitle" required class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+
+                                <div class="col-span-1 sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Subtítulo Hero</label>
+                                    <textarea id="settingHeroSubtitle" rows="2" required class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                                </div>
+
+                                <div class="col-span-1 sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Mensaje de Bienvenida del Chatbot IA</label>
+                                    <textarea id="settingChatGreeting" rows="3" required class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                                </div>
+
+                                <div class="col-span-1 sm:col-span-2 pt-3 border-t border-slate-100">
+                                    <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Cambiar Clave de Administrador</label>
+                                    <input type="password" id="settingAdminPass" required class="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-end gap-3 pt-3">
+                                <button type="submit" class="px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl text-xs shadow-md transition-all">
+                                    Guardar Cambios del Sitio
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // GLOBAL SITE CONFIGURATION (EDITABLE BY OWNER)
+        let siteConfig = {
+            phone: "+57 314 3392580",
+            email: "b&tuinmobiliaria@gmail.com",
+            address: "Cra 50 B #98-37, Santa Cruz",
+            heroTitle: "Encontramos el lugar donde construirás tus mejores recuerdos",
+            heroSubtitle: "Te acompañamos paso a paso con calidez, honestidad y la experiencia que necesitas para comprar, rentar o invertir con total tranquilidad.",
+            chatGreeting: "¡Un gusto saludarte! Bienvenido a <b>B & T ASESORÍA INMOBILIARIA</b>. 🏠<br><br>Soy tu asesor en línea detrás de la pantalla. Estoy listo para ayudarte a encontrar el inmueble perfecto según tu presupuesto y necesidades.<br><br>¿Qué tipo de inmueble buscas hoy?",
+            adminPass: "admin123"
+        };
+
+        // INVENTORY DATABASE
+        let properties = [
+            {
+                id: "prop-1",
+                title: "Casa Campestre Residencial con Jardín",
+                category: "Casa",
+                type: "Venta",
+                price: 4850000,
+                location: "Santa Cruz, Medellín",
+                bedrooms: 3,
+                bathrooms: 3.5,
+                area: 280,
+                parking: 2,
+                description: "Hermosa residencia de estilo cálido y moderno. Cuenta con amplios ventanales que iluminan el área social, cocina integral de cuarzo y un jardín privado perfecto para reuniones familiares.",
+                images: [
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1000&q=80"
+                ],
+                status: "Disponible"
+            },
+            {
+                id: "prop-2",
+                title: "Departamento Elegante con Vista Panorámica",
+                category: "Departamento",
+                type: "Renta",
+                price: 2400000,
+                location: "Poblado, Medellín",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: 110,
+                parking: 2,
+                description: "Exclusivo departamento en piso alto con finos acabados de madera. Incluye amenidades como alberca, gimnasio equipado y vigilancia 24/7.",
+                images: [
+                    "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=80"
+                ],
+                status: "Disponible"
+            },
+            {
+                id: "prop-3",
+                title: "Residencia Familiar en Condominio Cerrado",
+                category: "Casa",
+                type: "Venta",
+                price: 3200000,
+                location: "Santa Cruz, Medellín",
+                bedrooms: 4,
+                bathrooms: 3,
+                area: 210,
+                parking: 2,
+                description: "Casa acogedora de dos plantas con recámara principal en planta baja. Excelente ubicación cerca de mejores escuelas y centros comerciales.",
+                images: [
+                    "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&q=80"
+                ],
+                status: "Disponible"
+            }
+        ];
+
+        // LEADS DATABASE
+        let leads = [
+            {
+                id: "lead-1",
+                name: "Carlos Mendoza",
+                phone: "+57 314 3392580",
+                budget: "Venta",
+                interest: "Casa en Venta en Santa Cruz con jardín",
+                date: "Hace 1 hora",
+                status: "Nuevo",
+                notes: "Interesado en visita este fin de semana"
+            }
+        ];
+
+        let currentActiveImages = [];
+        let activeHeroType = 'todos';
+        let isAdminLoggedIn = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            applySiteConfigToUI();
+            renderPropertyCatalog(properties);
+            updateAdminCounts();
+            setupDragAndDrop();
+        });
+
+        function applySiteConfigToUI() {
+            // Header WA Link
+            const waRaw = siteConfig.phone.replace(/[^0-9]/g, '');
+            const waUrl = `https://wa.me/${waRaw}?text=${encodeURIComponent('Hola B&T Asesoría Inmobiliaria, deseo información')}`;
+            
+            document.getElementById('headerWaBtn').href = waUrl;
+            document.getElementById('contactWaLink').href = waUrl;
+
+            // Email & Address Displays
+            document.getElementById('contactEmailDisplay').textContent = siteConfig.email;
+            document.getElementById('contactEmailDisplay').href = `mailto:${siteConfig.email}`;
+            document.getElementById('contactAddressDisplay').textContent = siteConfig.address;
+
+            // Hero Text
+            document.getElementById('displayHeroTitle').innerHTML = siteConfig.heroTitle;
+            document.getElementById('displayHeroSubtitle').textContent = siteConfig.heroSubtitle;
+
+            // Chatbot Greeting
+            document.getElementById('chatWelcomeMessageContainer').innerHTML = siteConfig.chatGreeting;
+
+            // Sync Settings Tab Inputs
+            document.getElementById('settingPhone').value = siteConfig.phone;
+            document.getElementById('settingEmail').value = siteConfig.email;
+            document.getElementById('settingAddress').value = siteConfig.address;
+            document.getElementById('settingHeroTitle').value = siteConfig.heroTitle;
+            document.getElementById('settingHeroSubtitle').value = siteConfig.heroSubtitle;
+            document.getElementById('settingChatGreeting').value = siteConfig.chatGreeting;
+            document.getElementById('settingAdminPass').value = siteConfig.adminPass;
+        }
+
+        function renderPropertyCatalog(items) {
+            const container = document.getElementById('propertyGrid');
+            const emptyState = document.getElementById('emptyCatalogState');
+            const countLabel = document.getElementById('resultsCount');
+
+            countLabel.textContent = `Mostrando ${items.length} propiedad${items.length === 1 ? '' : 'es'}`;
+
+            if (!items || items.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            container.innerHTML = items.map(p => `
+                <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl transition-all group flex flex-col">
+                    <div class="relative h-56 overflow-hidden bg-slate-100">
+                        <img src="${p.images[0] || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80'}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 flex gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-extrabold ${p.type === 'Venta' ? 'bg-brand-900 text-white' : 'bg-amber-500 text-slate-900'} shadow-md">
+                                En ${p.type}
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/90 text-slate-800 backdrop-blur-sm shadow-sm">
+                                ${p.category}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="text-xl font-extrabold text-brand-600 mb-1">
+                                $${Number(p.price).toLocaleString('es-CO')} ${p.type === 'Renta' ? '<span class="text-xs text-slate-500 font-normal">/ mes</span>' : ''}
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-base line-clamp-1 group-hover:text-brand-600 transition-colors">${p.title}</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1.5 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> ${p.location}
+                            </p>
+                            
+                            <p class="text-xs text-slate-600 mt-3 line-clamp-2 leading-relaxed">
+                                ${p.description}
+                            </p>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 text-center text-xs text-slate-600 font-medium">
+                            <div class="bg-slate-50 p-2 rounded-xl">
+                                <i class="fa-solid fa-bed text-brand-600 block mb-0.5"></i>
+                                <span>${p.bedrooms} Recs</span>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-xl">
+                                <i class="fa-solid fa-bath text-brand-600 block mb-0.5"></i>
+                                <span>${p.bathrooms} Baños</span>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-xl">
+                                <i class="fa-solid fa-ruler-combined text-brand-600 block mb-0.5"></i>
+                                <span>${p.area} m²</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 flex gap-2">
+                            <button onclick="openPropertyModal('${p.id}')" class="flex-grow py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold text-xs transition-all">
+                                Ver Detalles
+                            </button>
+                            <button onclick="askAiAboutProperty('${p.title}')" class="px-3.5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white rounded-xl font-bold text-xs transition-all flex items-center gap-1.5" title="Preguntar al Asesor IA">
+                                <i class="fa-solid fa-robot"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setSearchModalType(type) {
+            activeHeroType = type;
+            document.querySelectorAll('.search-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-900', 'text-white', 'font-bold');
+                btn.classList.add('text-slate-600');
+            });
+            const activeBtn = document.getElementById('tabType' + type.charAt(0).toUpperCase() + type.slice(1));
+            if (activeBtn) {
+                activeBtn.classList.add('bg-brand-900', 'text-white', 'font-bold');
+                activeBtn.classList.remove('text-slate-600');
+            }
+        }
+
+        function applyHeroFilter() {
+            const category = document.getElementById('heroFilterCategory').value;
+            const location = document.getElementById('heroFilterLocation').value.toLowerCase().trim();
+            const maxPrice = parseFloat(document.getElementById('heroFilterPrice').value);
+
+            const filtered = properties.filter(p => {
+                const matchesType = activeHeroType === 'todos' || p.type === activeHeroType;
+                const matchesCategory = category === 'todas' || p.category === category;
+                const matchesLocation = !location || p.location.toLowerCase().includes(location) || p.title.toLowerCase().includes(location);
+                const matchesPrice = Number(p.price) <= maxPrice;
+                return matchesType && matchesCategory && matchesLocation && matchesPrice;
+            });
+
+            renderPropertyCatalog(filtered);
+            document.getElementById('propiedades').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetFilters() {
+            setSearchModalType('todos');
+            document.getElementById('heroFilterCategory').value = 'todas';
+            document.getElementById('heroFilterLocation').value = '';
+            document.getElementById('heroFilterPrice').value = '999999999';
+            renderPropertyCatalog(properties);
+        }
+
+        function openPropertyModal(id) {
+            const p = properties.find(item => item.id === id);
+            if (!p) return;
+
+            const modal = document.getElementById('propertyModal');
+            const content = document.getElementById('modalContent');
+            const waRaw = siteConfig.phone.replace(/[^0-9]/g, '');
+
+            content.innerHTML = `
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 mb-2">
+                                En ${p.type} • ${p.category}
+                            </span>
+                            <h2 class="text-2xl font-extrabold text-slate-900">${p.title}</h2>
+                            <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-amber-500"></i> ${p.location}</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-2xl font-black text-brand-600 block">$${Number(p.price).toLocaleString('es-CO')}</span>
+                        </div>
+                    </div>
+
+                    <div class="rounded-2xl overflow-hidden bg-slate-100 h-72 sm:h-96 relative">
+                        <img id="modalMainImg" src="${p.images[0] || ''}" class="w-full h-full object-cover">
+                    </div>
+
+                    ${p.images.length > 1 ? `
+                        <div class="flex gap-2 overflow-x-auto pb-2">
+                            ${p.images.map(img => `
+                                <img src="${img}" onclick="document.getElementById('modalMainImg').src='${img}'" class="w-20 h-16 rounded-xl object-cover cursor-pointer border-2 hover:border-brand-600 transition-all">
+                            `).join('')}
+                        </div>
+                    ` : ''}
+
+                    <div class="grid grid-cols-4 gap-3 bg-slate-50 p-4 rounded-2xl text-center text-xs">
+                        <div>
+                            <span class="block text-slate-400">Recámaras</span>
+                            <span class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-bed text-brand-600 mr-1"></i>${p.bedrooms}</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400">Baños</span>
+                            <span class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-bath text-brand-600 mr-1"></i>${p.bathrooms}</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400">Área Const.</span>
+                            <span class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-ruler-combined text-brand-600 mr-1"></i>${p.area} m²</span>
+                        </div>
+                        <div>
+                            <span class="block text-slate-400">Estacionamiento</span>
+                            <span class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-car text-brand-600 mr-1"></i>${p.parking || 0}</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-2">Descripción de la Propiedad</h4>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">${p.description}</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100">
+                        <a href="https://wa.me/${waRaw}?text=Hola%20B%26T,%20estoy%20interesado%20en:%20${encodeURIComponent(p.title)}" target="_blank" class="flex-grow py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs text-center flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Agendar Cita por WhatsApp
+                        </a>
+                        <button onclick="closePropertyModal(); askAiAboutProperty('${p.title}')" class="py-3 px-6 bg-brand-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-robot text-amber-400"></i> Consultar con Asesor IA
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closePropertyModal() {
+            document.getElementById('propertyModal').classList.add('hidden');
+        }
+
+        function toggleAiChat() {
+            document.getElementById('chatWindow').classList.toggle('hidden');
+        }
+
+        function askAiAboutProperty(title) {
+            document.getElementById('chatWindow').classList.remove('hidden');
+            const chatInput = document.getElementById('chatInput');
+            chatInput.value = `Me interesa saber más sobre "${title}"`;
+            sendChatMessage();
+        }
+
+        function sendQuickReply(text) {
+            document.getElementById('chatInput').value = text;
+            sendChatMessage();
+        }
+
+        function handleChatKeyDown(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const chatMessages = document.getElementById('chatMessages');
+
+            chatMessages.innerHTML += `
+                <div class="flex gap-2 justify-end">
+                    <div class="bg-brand-600 text-white p-3 rounded-2xl rounded-tr-none text-slate-100 max-w-[85%] shadow-sm leading-relaxed">
+                        ${text}
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            const typingId = 'typing-' + Date.now();
+            chatMessages.innerHTML += `
+                <div id="${typingId}" class="flex gap-2">
+                    <div class="w-7 h-7 rounded-full bg-amber-500 text-slate-900 flex items-center justify-center text-[10px] font-bold flex-shrink-0">B&T</div>
+                    <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-500 max-w-[85%] shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-ellipsis animate-pulse"></i> El asesor está escribiendo...
+                    </div>
+                </div>
+            `;
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            captureLeadFromText(text);
+
+            try {
+                const inventorySummary = properties.map(p => 
+                    `- ID: ${p.id}, Titulo: ${p.title}, Operacion: ${p.type}, Categoria: ${p.category}, Precio: $${p.price}, Ubicacion: ${p.location}, Recamaras: ${p.bedrooms}, Baños: ${p.bathrooms}, Descripcion: ${p.description}`
+                ).join("\n");
+
+                const systemInstruction = `
+Eres un ASESOR INMOBILIARIO HUMANO PROFESIONAL de "B & T ASESORÍA INMOBILIARIA". Estás atendiendo al cliente en tiempo real por chat, conversando de manera natural, respetuosa y cercana, como si estuvieras detrás de otra pantalla.
+
+DATOS ACTUALES Y OFICIALES CONFIGURADOS POR EL DUEÑO:
+- Teléfono / WhatsApp directo del dueño: ${siteConfig.phone}
+- Correo electrónico: ${siteConfig.email}
+- Dirección física: ${siteConfig.address}
+
+INVENTARIO COMPLETO Y FINES DE LAS PROPIEDADES EN EL SITIO:
+${inventorySummary}
+
+REGLAS DE ATENCIÓN:
+1. Habla SIEMPRE en primera persona como un profesional en vivo.
+2. NUNCA digas que eres una IA o bot.
+3. Ofrece inmuebles específicos de la lista.
+4. Solicita respetuosamente su nombre y teléfono para que el dueño (${siteConfig.phone}) le dé seguimiento.
+                `;
+
+                const apiKey = "";
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: text }] }],
+                        systemInstruction: { parts: [{ text: systemInstruction }] }
+                    })
+                });
+
+                const data = await response.json();
+                document.getElementById(typingId)?.remove();
+
+                let botReply = `Con mucho gusto le atiendo. Si prefiere una atención telefónica inmediata con nuestro dueño y director, puede comunicarse al WhatsApp ${siteConfig.phone} o al correo ${siteConfig.email}.`;
+                if (data.candidates && data.candidates[0]?.content?.parts[0]?.text) {
+                    botReply = data.candidates[0].content.parts[0].text;
+                }
+
+                chatMessages.innerHTML += `
+                    <div class="flex gap-2">
+                        <div class="w-7 h-7 rounded-full bg-amber-500 text-slate-900 flex items-center justify-center text-[10px] font-bold flex-shrink-0">B&T</div>
+                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 max-w-[85%] shadow-sm leading-relaxed">
+                            ${botReply.replace(/\n/g, '<br>')}
+                        </div>
+                    </div>
+                `;
+            } catch (err) {
+                document.getElementById(typingId)?.remove();
+                chatMessages.innerHTML += `
+                    <div class="flex gap-2">
+                        <div class="w-7 h-7 rounded-full bg-amber-500 text-slate-900 flex items-center justify-center text-[10px] font-bold flex-shrink-0">B&T</div>
+                        <div class="bg-white p-3 rounded-2xl rounded-tl-none border border-slate-200 text-slate-700 max-w-[85%] shadow-sm leading-relaxed">
+                            Ha sido un placer atenderle. Si desea una consulta directa en este instante, puede escribirnos al WhatsApp de la gerencia <strong>${siteConfig.phone}</strong>.
+                        </div>
+                    </div>
+                `;
+            }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function captureLeadFromText(text) {
+            const phoneMatch = text.match(/(\+?\d{1,3}[-.\s]?)?\(?\d{2,4}\)?[-.\s]?\d{3,4}[-.\s]?\d{3,4}/);
+            if (phoneMatch || text.length > 25) {
+                const existingLead = leads.find(l => l.interest === text);
+                if (!existingLead) {
+                    leads.unshift({
+                        id: 'lead-' + Date.now(),
+                        name: 'Cliente Interesado (Chat)',
+                        phone: phoneMatch ? phoneMatch[0] : siteConfig.phone,
+                        budget: 'Consultar',
+                        interest: text,
+                        date: 'Hace un momento',
+                        status: 'Nuevo',
+                        notes: 'Captado por IA'
+                    });
+                    updateAdminCounts();
+                }
+            }
+        }
+
+        function toggleAdminPanel() {
+            document.getElementById('adminPanelModal').classList.toggle('hidden');
+        }
+
+        function loginAdmin() {
+            const pass = document.getElementById('adminPasswordInput').value;
+            if (pass === siteConfig.adminPass || pass === 'admin123') {
+                isAdminLoggedIn = true;
+                document.getElementById('adminLoginGate').classList.add('hidden');
+                document.getElementById('adminWorkspace').classList.remove('hidden');
+                document.getElementById('adminLoginBadge').classList.remove('hidden');
+                document.getElementById('adminBtnText').textContent = 'Panel Dueño (Activo)';
+                renderAdminDashboard();
+                renderAdminProperties();
+                renderAdminLeads();
+            } else {
+                showToast('Clave incorrecta', 'error');
+            }
+        }
+
+        function switchAdminTab(tabName) {
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+                btn.classList.remove('border-brand-600', 'text-brand-600');
+                btn.classList.add('border-transparent', 'text-slate-500');
+            });
+
+            document.getElementById('adminTabSectionDashboard').classList.add('hidden');
+            document.getElementById('adminTabSectionProperties').classList.add('hidden');
+            document.getElementById('adminTabSectionAdd').classList.add('hidden');
+            document.getElementById('adminTabSectionLeads').classList.add('hidden');
+            document.getElementById('adminTabSectionSettings').classList.add('hidden');
+
+            if (tabName === 'dashboard') {
+                document.getElementById('adminTabDashboard').classList.add('border-brand-600', 'text-brand-600');
+                document.getElementById('adminTabSectionDashboard').classList.remove('hidden');
+                renderAdminDashboard();
+            } else if (tabName === 'properties') {
+                document.getElementById('adminTabProperties').classList.add('border-brand-600', 'text-brand-600');
+                document.getElementById('adminTabSectionProperties').classList.remove('hidden');
+                renderAdminProperties();
+            } else if (tabName === 'add') {
+                document.getElementById('adminTabAdd').classList.add('border-brand-600', 'text-brand-600');
+                document.getElementById('adminTabSectionAdd').classList.remove('hidden');
+            } else if (tabName === 'leads') {
+                document.getElementById('adminTabLeads').classList.add('border-brand-600', 'text-brand-600');
+                document.getElementById('adminTabSectionLeads').classList.remove('hidden');
+                renderAdminLeads();
+            } else if (tabName === 'settings') {
+                document.getElementById('adminTabSettings').classList.add('border-brand-600', 'text-brand-600');
+                document.getElementById('adminTabSectionSettings').classList.remove('hidden');
+            }
+        }
+
+        function renderAdminDashboard() {
+            document.getElementById('dashTotalProp').textContent = properties.length;
+            document.getElementById('dashSalesProp').textContent = properties.filter(p => p.type === 'Venta').length;
+            document.getElementById('dashRentProp').textContent = properties.filter(p => p.type === 'Renta').length;
+            document.getElementById('dashTotalLeads').textContent = leads.length;
+        }
+
+        function renderAdminProperties() {
+            const container = document.getElementById('adminPropertiesList');
+            if (properties.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-400 text-center py-8">No hay propiedades activas.</p>`;
+                return;
+            }
+
+            container.innerHTML = properties.map(p => `
+                <div class="bg-white p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <img src="${p.images[0] || 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=300&q=80'}" class="w-16 h-16 rounded-xl object-cover bg-slate-100 flex-shrink-0">
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-slate-100 text-slate-700 rounded-md">En ${p.type} • ${p.category}</span>
+                            <h5 class="font-bold text-slate-800 text-sm mt-0.5 line-clamp-1">${p.title}</h5>
+                            <p class="text-xs font-black text-brand-600 mt-0.5">$${Number(p.price).toLocaleString('es-CO')}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 w-full sm:w-auto justify-end border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-100">
+                        <button onclick="editProperty('${p.id}')" class="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-pen-to-square text-brand-600"></i> Editar
+                        </button>
+                        <button onclick="deleteProperty('${p.id}')" class="px-3.5 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-xl transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-trash-can text-rose-600"></i> Dar de Baja
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupDragAndDrop() {
+            const dropZone = document.getElementById('dropZone');
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eName => {
+                dropZone.addEventListener(eName, e => { e.preventDefault(); e.stopPropagation(); }, false);
+            });
+            dropZone.addEventListener('drop', e => handleFiles(e.dataTransfer.files), false);
+        }
+
+        function handleFileSelect(e) {
+            handleFiles(e.target.files);
+        }
+
+        function handleFiles(files) {
+            [...files].forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentActiveImages.push(e.target.result);
+                    renderUploadedImagePreviews();
+                }
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function addImageFromUrl() {
+            const urlInput = document.getElementById('imageUrlInput');
+            const url = urlInput.value.trim();
+            if (url) {
+                currentActiveImages.push(url);
+                urlInput.value = '';
+                renderUploadedImagePreviews();
+            }
+        }
+
+        function removeImage(index) {
+            currentActiveImages.splice(index, 1);
+            renderUploadedImagePreviews();
+        }
+
+        function renderUploadedImagePreviews() {
+            const grid = document.getElementById('imagePreviewGrid');
+            grid.innerHTML = currentActiveImages.map((img, idx) => `
+                <div class="relative group h-20 rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
+                    <img src="${img}" class="w-full h-full object-cover">
+                    <button type="button" onclick="removeImage(${idx})" class="absolute top-1 right-1 w-6 h-6 bg-rose-600 text-white rounded-full flex items-center justify-center text-xs shadow hover:scale-110 transition-all">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function saveProperty(e) {
+            e.preventDefault();
+            const id = document.getElementById('formPropId').value;
+            const title = document.getElementById('formTitle').value.trim();
+            const category = document.getElementById('formCategory').value;
+            const type = document.getElementById('formType').value;
+            const price = parseFloat(document.getElementById('formPrice').value);
+            const location = document.getElementById('formLocation').value.trim();
+            const bedrooms = parseInt(document.getElementById('formBedrooms').value);
+            const bathrooms = parseFloat(document.getElementById('formBathrooms').value);
+            const area = parseInt(document.getElementById('formArea').value);
+            const parking = parseInt(document.getElementById('formParking').value);
+            const description = document.getElementById('formDescription').value.trim();
+
+            const finalImages = currentActiveImages.length > 0 ? currentActiveImages : [
+                "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80"
+            ];
+
+            if (id) {
+                const index = properties.findIndex(p => p.id === id);
+                if (index !== -1) {
+                    properties[index] = { id, title, category, type, price, location, bedrooms, bathrooms, area, parking, description, images: finalImages, status: "Disponible" };
+                    showToast('Propiedad actualizada');
+                }
+            } else {
+                const newProp = {
+                    id: 'prop-' + Date.now(),
+                    title, category, type, price, location, bedrooms, bathrooms, area, parking, description,
+                    images: finalImages,
+                    status: "Disponible"
+                };
+                properties.unshift(newProp);
+                showToast('Propiedad publicada con éxito');
+            }
+
+            cancelPropertyEdit();
+            renderPropertyCatalog(properties);
+            updateAdminCounts();
+            switchAdminTab('properties');
+        }
+
+        function editProperty(id) {
+            const p = properties.find(item => item.id === id);
+            if (!p) return;
+
+            document.getElementById('formPropId').value = p.id;
+            document.getElementById('formTitle').value = p.title;
+            document.getElementById('formCategory').value = p.category;
+            document.getElementById('formType').value = p.type;
+            document.getElementById('formPrice').value = p.price;
+            document.getElementById('formLocation').value = p.location;
+            document.getElementById('formBedrooms').value = p.bedrooms;
+            document.getElementById('formBathrooms').value = p.bathrooms;
+            document.getElementById('formArea').value = p.area;
+            document.getElementById('formParking').value = p.parking || 0;
+            document.getElementById('formDescription').value = p.description;
+            
+            currentActiveImages = [...p.images];
+            renderUploadedImagePreviews();
+            document.getElementById('formPropertyTitle').textContent = "Editar Propiedad";
+
+            switchAdminTab('add');
+        }
+
+        function deleteProperty(id) {
+            properties = properties.filter(p => p.id !== id);
+            renderAdminProperties();
+            renderPropertyCatalog(properties);
+            updateAdminCounts();
+            showToast('Propiedad eliminada');
+        }
+
+        function cancelPropertyEdit() {
+            document.getElementById('propertyForm').reset();
+            document.getElementById('formPropId').value = '';
+            document.getElementById('formPropertyTitle').textContent = "Agregar Nueva Propiedad";
+            currentActiveImages = [];
+            renderUploadedImagePreviews();
+        }
+
+        function renderAdminLeads() {
+            const container = document.getElementById('adminLeadsList');
+            if (leads.length === 0) {
+                container.innerHTML = `<div class="col-span-2 text-center py-8 text-xs text-slate-400">No hay prospectos captados.</div>`;
+                return;
+            }
+
+            container.innerHTML = leads.map(l => {
+                const waRaw = l.phone.replace(/[^0-9]/g, '');
+                return `
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm relative space-y-3">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-xs">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-slate-800 text-sm">${l.name}</h5>
+                                <span class="text-[10px] text-slate-400">${l.date}</span>
+                            </div>
+                        </div>
+                        <select onchange="updateLeadStatus('${l.id}', this.value)" class="text-[11px] font-bold px-2 py-1 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none">
+                            <option value="Nuevo" ${l.status === 'Nuevo' ? 'selected' : ''}>Nuevo</option>
+                            <option value="Contactado" ${l.status === 'Contactado' ? 'selected' : ''}>Contactado</option>
+                            <option value="Cerrado" ${l.status === 'Cerrado' ? 'selected' : ''}>Cerrado</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-1 text-xs text-slate-600">
+                        <p><i class="fa-solid fa-phone text-emerald-600 mr-1.5"></i> <strong>Contacto:</strong> ${l.phone}</p>
+                        <p><i class="fa-solid fa-comments text-brand-600 mr-1.5"></i> <strong>Detalle:</strong> ${l.interest}</p>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                        <a href="https://wa.me/${waRaw}" target="_blank" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1">
+                            <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+                        </a>
+                        <button onclick="removeLead('${l.id}')" class="text-xs text-rose-500 hover:text-rose-700 font-semibold">Eliminar</button>
+                    </div>
+                </div>
+            `;
+            }).join('');
+        }
+
+        function updateLeadStatus(id, newStatus) {
+            const lead = leads.find(l => l.id === id);
+            if (lead) {
+                lead.status = newStatus;
+                showToast(`Estado actualizado a: ${newStatus}`);
+            }
+        }
+
+        function removeLead(id) {
+            leads = leads.filter(l => l.id !== id);
+            renderAdminLeads();
+            updateAdminCounts();
+        }
+
+        function clearLeads() {
+            leads = [];
+            renderAdminLeads();
+            updateAdminCounts();
+        }
+
+        function saveSiteSettings(e) {
+            e.preventDefault();
+            siteConfig.phone = document.getElementById('settingPhone').value.trim();
+            siteConfig.email = document.getElementById('settingEmail').value.trim();
+            siteConfig.address = document.getElementById('settingAddress').value.trim();
+            siteConfig.heroTitle = document.getElementById('settingHeroTitle').value.trim();
+            siteConfig.heroSubtitle = document.getElementById('settingHeroSubtitle').value.trim();
+            siteConfig.chatGreeting = document.getElementById('settingChatGreeting').value.trim();
+            siteConfig.adminPass = document.getElementById('settingAdminPass').value.trim();
+
+            applySiteConfigToUI();
+            showToast('¡Configuración guardada correctamente!');
+        }
+
+        function updateAdminCounts() {
+            document.getElementById('adminPropCount').textContent = properties.length;
+            document.getElementById('adminLeadsCount').textContent = leads.length;
+            renderAdminDashboard();
+        }
+
+        function handleDirectContact(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value;
+            const phone = document.getElementById('contactPhone').value;
+            const msg = document.getElementById('contactMessage').value;
+
+            leads.unshift({
+                id: 'lead-' + Date.now(),
+                name: name,
+                phone: phone,
+                budget: 'Directo',
+                interest: msg,
+                date: 'Hace un momento',
+                status: 'Nuevo',
+                notes: 'Formulario Web'
+            });
+
+            updateAdminCounts();
+            showToast('¡Gracias! Nos pondremos en contacto contigo.');
+            e.target.reset();
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `fixed top-24 right-5 z-50 px-4 py-3 rounded-2xl text-xs font-bold shadow-2xl text-white flex items-center gap-2 transition-all transform translate-y-2 ${type === 'error' ? 'bg-rose-600' : 'bg-slate-900'}`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-amber-400"></i> ${message}`;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', '-translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
